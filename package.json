@@ -16,6 +16,7 @@
     "formik": "^2.4.9",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-floating-whatsapp": "^5.0.8",
     "react-router-dom": "^7.18.5",
     "react-toastify": "^11.2.0",
     "sweetalert2": "^11.26.25",

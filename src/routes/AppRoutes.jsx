@@ -1,7 +1,19 @@
-import React from 'react'
+import { Routes, Route, useLocation } from "react-router-dom";
+import Home from "../pages/public/Home.jsx";
+import FloatingWs from "../components/FloatingWs.jsx";
 
-export default function Approutes() {
+function AppRoutes() {
+  const location = useLocation();
+
+
   return (
-    <div>Approutes</div>
-  )
+    <>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <FloatingWs />
+    </>
+  );
 }
+
+export default AppRoutes;
