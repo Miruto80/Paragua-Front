@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "../pages/public/Home.jsx";
-import FloatingWs from "../components/FloatingWs.jsx";
+import FloatingWs from "../components/public/FloatingWs.jsx";
 
 function AppRoutes() {
   const location = useLocation();
