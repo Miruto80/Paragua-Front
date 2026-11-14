@@ -1,0 +1,72 @@
+.paragua-navbar {
+  background-color: #934135;
+  border-bottom: 1px solid #e8e5eb;
+  padding: 0.75rem 0;
+}
+
+.paragua-navbar .container {
+  align-items: center;
+}
+
+.paragua-navbar-collapse {
+  order: 3;
+  flex-basis: 100%;
+}
+
+.paragua-navbar .nav-link {
+  color: #393342;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  transition: color 0.2s ease;
+}
+
+.paragua-navbar .nav-link:hover,
+.paragua-navbar .nav-link:focus {
+  color: #8d36d9;
+}
+
+.paragua-brand {
+  order: 1;
+  display: inline-flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.paragua-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.paragua-navbar-toggler {
+  order: 2;
+  border-color: #ded8e5;
+  padding: 0.35rem 0.55rem;
+}
+
+.paragua-navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(141, 54, 217, 0.2);
+}
+
+@media (min-width: 992px) {
+  .paragua-navbar-collapse {
+    order: 2;
+    flex-basis: auto;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .paragua-navbar .navbar-nav {
+    gap: 0.25rem;
+  }
+
+  .paragua-navbar .nav-link {
+    padding: 0.5rem 0.85rem;
+  }
+
+  .paragua-brand {
+    order: 1;
+  }
+}
