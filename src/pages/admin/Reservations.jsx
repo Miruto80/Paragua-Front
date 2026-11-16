@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function reservations() {
+export default function Reservations() {
   return (
-    <div>reservations</div>
+    <div>Reservations</div>
   )
 }
