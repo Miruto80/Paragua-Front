@@ -1,7 +1,22 @@
-import React from 'react'
+import { Navigate } from "react-router-dom";
 
-export default function ProtectRoute() {
-  return (
-    <div>ProtectRoute</div>
-  )
+export default function ProtectRoute({ children, rolPermitido }) {
+  const usuarioRaw = localStorage.getItem("usuario");
+  const token = localStorage.getItem("accessToken");
+
+  if (!token || !usuarioRaw) {
+    return <Navigate to="/login" replace />;
+  }
+
+  try {
+    const usuario = JSON.parse(usuarioRaw);
+
+    if (rolPermitido && usuario.rol !== rolPermitido) {
+      return <Navigate to="/" replace />;
+    }
+  } catch {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
 }

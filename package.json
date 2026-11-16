@@ -14,9 +14,6 @@
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
-    "@fullcalendar/core": "^6.1.22",
-    "@fullcalendar/daygrid": "^6.1.22",
-    "@fullcalendar/interaction": "^6.1.22",
     "@fullcalendar/react": "^7.1.5",
     "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.21.1",
@@ -29,6 +26,7 @@
     "react-floating-whatsapp": "^5.0.8",
     "react-router-dom": "^7.18.5",
     "react-toastify": "^11.2.0",
+    "temporal-polyfill": "^1.0.7",
     "sweetalert2": "^11.26.25",
     "yup": "^1.7.1"
   },

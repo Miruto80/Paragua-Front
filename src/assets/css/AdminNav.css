@@ -1,0 +1,103 @@
+.admin-navbar {
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.admin-navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sidebar-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #080A1C;
+    color: #E5B83F;
+    transition: .25s;
+}
+
+.sidebar-toggle:hover {
+    background: #17195A;
+}
+
+.admin-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-button {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    background: #f5f5f5;
+    font-size: 18px;
+    transition: background 0.2s;
+}
+
+.icon-button:hover {
+    background: #e2e8f0;
+}
+
+.btn-logout {
+  background-color: #E5B83F; 
+  border-color: #fdca3e;
+  color: #080808;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.btn-logout:hover {
+  background-color: #d1a732;
+  border-color: #fdca3e;
+  color: #000000;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .sidebar-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .admin-navbar {
+        padding: 0 20px;
+    }
+
+    .admin-navbar-right {
+        gap: 15px;
+    }
+}
+
+/* Responsivo para Teléfonos*/
+@media (max-width: 576px) {
+    .admin-navbar {
+        padding: 0 12px;
+        height: 65px;
+    }
+
+    .admin-navbar-right {
+        gap: 10px;
+    }
+
+    .btn-logout {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
