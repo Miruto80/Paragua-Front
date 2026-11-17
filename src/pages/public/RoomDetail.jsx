@@ -1,8 +1,24 @@
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBed, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { roomCategories } from "../../data/roomCategories.js";
 import "../../assets/css/Rooms.css";
+
+const roomFeatures = [
+  "Baño privado",
+  "Aire acondicionado",
+  "Ventilador",
+  "TV por cable",
+  "Lencería incluida",
+];
+
+const roomDetails = [
+  { label: "Número de habitación", value: "Por definir" },
+  { label: "Piso", value: "Por definir" },
+  { label: "Tarifa por persona", value: "Por definir" },
+  { label: "Estatus", value: "Por definir" },
+  { label: "Descripción", value: "Por definir", isDescription: true },
+];
 
 export default function RoomDetail() {
   const { capacity } = useParams();
@@ -35,23 +51,31 @@ export default function RoomDetail() {
               </div>
 
               <div className="room-feature-content">
-                <h2>Habitación para {category.capacity} personas</h2>
-                <p>{category.description}</p>
+                <h2>Detalles de la habitación</h2>
+                <dl className="room-metadata">
+                  {roomDetails.map(({ label, value, isDescription }) => (
+                    <div
+                      className={isDescription ? "room-metadata-description" : ""}
+                      key={label}
+                    >
+                      <dt>{label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
 
-                <div className="room-feature-facts">
-                  <div>
-                    <FontAwesomeIcon icon={faUsers} aria-hidden="true" />
-                    <span>Capacidad</span>
-                    <strong>{category.capacity} personas</strong>
-                  </div>
-                  <div>
-                    <span>Tarifa</span>
-                    <strong>Por definir</strong>
-                  </div>
-                </div>
+                <h3 className="room-feature-subheading">Comodidades incluidas</h3>
+                <ul className="room-feature-amenities">
+                  {roomFeatures.map((feature) => (
+                    <li key={feature}>
+                      <FontAwesomeIcon icon={faCheck} aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
 
                 <Link className="room-feature-action" to="/habitaciones">
-                  Ver otras habitaciones
+                  Reservar ahora
                 </Link>
               </div>
             </article>
