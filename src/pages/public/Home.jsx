@@ -1,4 +1,5 @@
 import Hero from "../../components/public/Hero.jsx";
+import Features from "../../components/public/Features.jsx";
 import Gallery from "../../components/public/Gallery.jsx";
 import Ubication from "../../components/public/Ubication.jsx";
 import Services from "../../components/public/Services.jsx";
@@ -11,6 +12,9 @@ export default function Home() {
     <main id="inicio">
       <div className="home-section">
         <Hero />
+      </div>
+      <div className="home-section">
+        <Features />
       </div>
       <div className="home-section">
         <FeaturedRooms />
