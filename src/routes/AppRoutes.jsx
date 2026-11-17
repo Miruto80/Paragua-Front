@@ -4,6 +4,7 @@ import Footer from "../components/layout/Footer.jsx";
 import Home from "../pages/public/Home.jsx";
 import Login from "../pages/public/Login.jsx";
 import Rooms from "../pages/public/Rooms.jsx";
+import RoomDetail from "../pages/public/RoomDetail.jsx";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 import AdminRoutes from "./AdminRoutes.jsx";
 import ProtectRoute from "./ProtectRoute.jsx";
@@ -23,6 +24,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/habitaciones" element={<Rooms />} />
+        <Route path="/habitaciones/:capacity" element={<RoomDetail />} />
 
         <Route
           path="/admin/*"
