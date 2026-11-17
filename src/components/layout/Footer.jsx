@@ -23,9 +23,9 @@ export default function Footer() {
             Tu 
           </p>
           <div className="footer-socials">
-            <a href="#instagram" className="social-icon"><FontAwesomeIcon icon={faInstagram} /></a>
-            <a href="#tiktok" className="social-icon"><FontAwesomeIcon icon={faTiktok} /></a>
-            <a href="#whatsapp" className="social-icon"><FontAwesomeIcon icon={faWhatsapp} /></a>
+            <a href="https://www.instagram.com/hotel_laparagua?xtok=MWVoZ2JzNXZ6OG03bw==" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://www.tiktok.com/@hotel_laparagua?_r=1&_t=ZS-9BUDCSTvqkC" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faTiktok} /></a>
+            <a href="https://wa.me/584127616797" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faWhatsapp} /></a>
           </div>
         </div>
 
