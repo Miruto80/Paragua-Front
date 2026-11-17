@@ -1,0 +1,91 @@
+.dashboard-summary {
+    max-width: 1400px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+.dashboard-summary-note,
+.dashboard-summary-selection {
+    margin-bottom: 0.75rem;
+    color: #64716e;
+    font-size: 0.85rem;
+}
+
+.dashboard-summary-selection {
+    margin: 0.75rem 0 0;
+    color: #1d5b50;
+    font-weight: 600;
+}
+
+.dashboard-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    width: 100%;
+    min-height: 132px;
+    padding: 1rem;
+    color: #243f3a;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #e6ebeb;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.85rem rgb(0 0 0 / 7%);
+}
+
+.dashboard-card-action {
+    cursor: pointer;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.dashboard-card-action:hover,
+.dashboard-card-action:focus-visible,
+.dashboard-card-action.is-active {
+    border-color: #1d5b50;
+    box-shadow: 0 0.35rem 1rem rgb(29 91 80 / 18%);
+}
+
+.dashboard-card-action:hover {
+    transform: translateY(-2px);
+}
+
+.dashboard-card-action:focus-visible {
+    outline: 3px solid rgb(29 91 80 / 30%);
+    outline-offset: 2px;
+}
+
+.dashboard-icon {
+    display: grid;
+    flex: 0 0 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    color: #fff;
+    border-radius: 0.65rem;
+}
+
+.dashboard-card-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.dashboard-card-title {
+    color: #64716e;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.dashboard-card-value {
+    color: #243f3a;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.dashboard-card-description {
+    color: #64716e;
+    font-size: 0.75rem;
+    line-height: 1.35;
+}

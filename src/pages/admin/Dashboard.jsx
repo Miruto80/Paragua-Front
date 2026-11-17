@@ -1,10 +1,11 @@
-import React from 'react'
-import Calendary from '../../components/admin/Calendary'
+import Calendary from "../../components/admin/Calendary";
+import DashboardCards from "../../components/admin/DashboardCards";
 
 export default function Dashboard() {
-  return (
-    <div>
-      <Calendary />
-    </div>
-  )
+    return (
+        <main>
+            <DashboardCards />
+            <Calendary />
+        </main>
+    );
 }
