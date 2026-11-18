@@ -14,7 +14,6 @@ export default function Calendary() {
 
   return (
     <section className="dashboard-calendar">
-      <h1 className="dashboard-calendar-title">Calendario</h1>
       {selectedDate && (
         <p className="dashboard-calendar-selected">
           Fecha seleccionada:{" "}
