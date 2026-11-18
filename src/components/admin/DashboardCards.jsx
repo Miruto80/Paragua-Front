@@ -54,19 +54,18 @@ export default function DashboardCards() {
 
     return (
         <section className="dashboard-summary" aria-label="Resumen de hoy">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-xl-5 g-3">
+            <div className="dashboard-cards-grid">
                 {cards.map((card) => (
-                    <div className="col" key={card.title}>
-                        <DashboardCard
-                            {...card}
-                            isActive={activeAction === card.action}
-                            onAction={(action) =>
-                                setActiveAction((currentAction) =>
-                                    currentAction === action ? null : action
-                                )
-                            }
-                        />
-                    </div>
+                    <DashboardCard
+                        key={card.title}
+                        {...card}
+                        isActive={activeAction === card.action}
+                        onAction={(action) =>
+                            setActiveAction((currentAction) =>
+                                currentAction === action ? null : action
+                            )
+                        }
+                    />
                 ))}
             </div>
             {activeAction === "arrivals" && (

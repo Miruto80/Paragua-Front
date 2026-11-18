@@ -1,11 +1,11 @@
 .admin-navbar {
     height: 70px;
-    background: #fff;
+    background: #903c32;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -14,7 +14,15 @@
 .admin-navbar-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+}
+
+.admin-hotel-brand {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
 }
 
 .admin-navbar-links {
@@ -24,9 +32,10 @@
     justify-content: center;
     min-width: 0;
     height: 100%;
-    gap: 4px;
+    gap: 6px;
     overflow-x: auto;
     scrollbar-width: none;
+    margin: 0 15px;
 }
 
 .admin-navbar-links::-webkit-scrollbar {
@@ -40,21 +49,26 @@
     gap: 8px;
     height: 42px;
     padding: 0 12px;
-    color: #48504f;
+    color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     font-size: 14px;
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
 }
 
-.admin-navbar-link:hover,
+.admin-navbar-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .admin-navbar-link.active {
-    color: #1d5b50;
-    background: #edf4f2;
+    color: #2b1d00;
+    background: #fed067;
+    font-weight: 600;
 }
 
 .admin-navbar-link:focus-visible {
-    outline: 2px solid #1d5b50;
+    outline: 2px solid #fed067;
     outline-offset: 2px;
 }
 
@@ -64,17 +78,14 @@
     height: 42px;
     border: none;
     border-radius: 10px;
-    background: #080A1C;
-    color: #E5B83F;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fed067;
     transition: .25s;
-}
-
-.sidebar-toggle {
     cursor: pointer;
 }
 
 .sidebar-toggle:hover {
-    background: #17195A;
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .admin-mobile-menu {
@@ -85,37 +96,40 @@
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .icon-button {
     position: relative;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border: none;
-    border-radius: 12px;
-    background: #f5f5f5;
-    font-size: 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 16px;
     transition: background 0.2s;
 }
 
 .icon-button:hover {
-    background: #e2e8f0;
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
 }
 
 .btn-logout {
-  background-color: #E5B83F; 
-  border-color: #fdca3e;
-  color: #080808;
+  background-color: #e94614; 
+  border-color: #9e2805;
+  color: #ffffff;
   font-weight: 500;
   border-radius: 10px;
-  padding: 10px 16px;
+  padding: 8px 14px;
+  transition: background-color 0.2s;
 }
 
 .btn-logout:hover {
-  background-color: #d1a732;
-  border-color: #fdca3e;
-  color: #000000;
+  background-color: #e4552a;
+  border-color: #9e2805;
+  color: #ffffff;
 }
 
 /* Responsivo */
@@ -143,7 +157,7 @@
         width: 100%;
         height: 100%;
         padding: 0;
-        background: rgb(8 10 28 / 48%);
+        background: rgb(0 0 0 / 50%);
         border: 0;
         cursor: pointer;
     }
@@ -165,7 +179,7 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 1rem;
-        color: #243f3a;
+        color: #903c32;
         font-size: 1.1rem;
         font-weight: 700;
     }
@@ -199,15 +213,20 @@
         text-decoration: none;
     }
 
-    .admin-mobile-menu-link:hover,
+    .admin-mobile-menu-link:hover {
+        background: #f7ebe9;
+        color: #903c32;
+    }
+
     .admin-mobile-menu-link.active {
-        color: #1d5b50;
-        background: #edf4f2;
+        color: #2b1d00;
+        background: #fed067;
+        font-weight: 600;
     }
 
     .admin-mobile-menu-link:focus-visible,
     .admin-mobile-menu-close:focus-visible {
-        outline: 2px solid #1d5b50;
+        outline: 2px solid #903c32;
         outline-offset: 2px;
     }
 
@@ -216,12 +235,7 @@
     }
 
     .admin-navbar-right {
-        gap: 15px;
-    }
-
-    .admin-navbar-link {
-        padding: 0 10px;
-        font-size: 13px;
+        gap: 12px;
     }
 }
 
@@ -235,25 +249,26 @@
     }
 }
 
-/* Responsivo para Teléfonos*/
+/* Responsivo para Teléfonos */
 @media (max-width: 576px) {
     .admin-navbar {
         padding: 0 12px;
         height: 65px;
     }
 
-    .admin-navbar-right {
-        gap: 10px;
+    .admin-hotel-brand {
+        font-size: 0.95rem;
     }
 
-    .admin-navbar-link {
-        gap: 6px;
-        padding: 0 9px;
-        font-size: 12px;
+    .admin-navbar-right {
+        gap: 8px;
     }
 
     .btn-logout {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 7px 10px;
+        font-size: 13px;
     }
 }
+
+
+

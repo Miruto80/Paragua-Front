@@ -1,0 +1,21 @@
+.dashboard-container {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(to bottom, #903c32 28%, #ffffff 28%);
+  padding-bottom: 3.5rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: 1600px; 
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    background: linear-gradient(to bottom, #903c32 22%, #ffffff 22%);
+    padding-bottom: 2rem;
+  }
+}

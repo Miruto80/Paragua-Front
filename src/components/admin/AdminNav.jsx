@@ -40,9 +40,11 @@ export default function AdminNavbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen]);
 
-   //const handleLogout = useLogout();
+  //const handleLogout = useLogout();
+
   return (
     <header className="admin-navbar">
+      
       <div className="admin-navbar-left">
         <button
           type="button"
@@ -54,6 +56,9 @@ export default function AdminNavbar() {
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
+        <NavLink to="/admin" className="admin-hotel-brand">
+          Hotel La Paragua
+        </NavLink>
       </div>
 
       <nav className="admin-navbar-links" aria-label="Navegación administrativa">
@@ -72,6 +77,7 @@ export default function AdminNavbar() {
         ))}
       </nav>
 
+      {/* Menú móvil desplegable */}
       {isMenuOpen && (
         <div className="admin-mobile-menu">
           <button
@@ -88,7 +94,7 @@ export default function AdminNavbar() {
             aria-label="Navegación administrativa"
           >
             <div className="admin-mobile-menu-header">
-              <span>Menú</span>
+              <span>Hotel La Paragua</span>
               <button
                 type="button"
                 className="admin-mobile-menu-close"
@@ -121,7 +127,7 @@ export default function AdminNavbar() {
       <div className="admin-navbar-right">
         <NavLink
           to="/admin/notificaciones"
-          className="icon-button d-flex align-items-center justify-content-center text-decoration-none text-reset"
+          className="icon-button d-flex align-items-center justify-content-center text-decoration-none"
           aria-label="Ver notificaciones"
           title="Ver notificaciones"
         >
@@ -130,15 +136,14 @@ export default function AdminNavbar() {
 
         <button 
           type="button"
-        //  onClick={handleLogout}
+          // onClick={handleLogout}
           className="btn btn-logout d-flex align-items-center"
         >
           <FontAwesomeIcon icon={faRightFromBracket} className="me-2" />
-        
           <span>Cerrar</span>
           <span className="d-none d-sm-inline ms-1">sesión</span>
         </button>
       </div>
     </header>
   );
-};
+}
