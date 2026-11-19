@@ -100,7 +100,6 @@ const SalesChart = () => {
         >
           <Line data={data} options={options} />
         </div>
-        <p className="text-center text-muted mt-2">Datos de muestra.</p>
       </div>
     </div>
   );
