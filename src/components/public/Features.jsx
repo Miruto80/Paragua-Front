@@ -58,12 +58,6 @@ const features = [
 export default function Features() {
   return (
     <section className="hero-features-section">
-      <header className="features-header">
-        <p className="features-eyebrow">Comodidades y Servicios</p>
-        <p className="features-intro">
-          Contamos con 60 habitaciones equipadas y los servicios esenciales para que disfrutes de Ocumare sin preocupaciones.
-        </p>
-      </header>
       <div className="hero-features-grid">
         {features.map((feature) => (
           <article className="feature-card" key={feature.title}>
