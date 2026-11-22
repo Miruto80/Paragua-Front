@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { usePostFetch } from "../../hooks/usePostFetch.jsx";
 import { usePutFetch } from "../../hooks/usePutFetch.jsx";
+import ImageUploaderMultiple from "../ImageUploaderMultiple.jsx";
+import { SERVER_URL } from "../../services/api.js";
 
 const emptyForm = {
   numero: "",
@@ -43,6 +45,7 @@ export default function RoomModal({ show, onClose, onSaved, room = null }) {
       estatus: room.estatus ?? "activa",
     };
   });
+  const [images, setImages] = useState([]);
 
   if (!show) return null;
 
@@ -56,12 +59,14 @@ export default function RoomModal({ show, onClose, onSaved, room = null }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const payload = {
+    const payload = new FormData();
+    Object.entries({
       ...form,
       piso: Number(form.piso),
       capacidad: Number(form.capacidad),
       precio_por_persona: Number(form.precio_por_persona),
-    };
+    }).forEach(([key, value]) => payload.append(key, value));
+    images.forEach((image) => payload.append("imagenes", image));
 
     try {
       if (room?.id) {
@@ -205,6 +210,43 @@ export default function RoomModal({ show, onClose, onSaved, room = null }) {
                     rows="3"
                     value={form.descripcion}
                     onChange={handleChange}
+                  />
+                </div>
+
+                <div className="col-12">
+                  <label className="form-label">
+                    {room ? "Fotos actuales" : "Fotos de la habitación"}
+                  </label>
+                  {room?.imagenes?.length > 0 && (
+                    <div className="d-flex flex-wrap gap-3 mb-3">
+                      {room.imagenes.map((image, index) => (
+                        <div
+                          className="text-center"
+                          key={image.id}
+                          style={{ width: 96 }}
+                        >
+                          <img
+                            src={`${SERVER_URL}${image.imagen}`}
+                            alt={`Habitación ${room.numero}, foto ${index + 1}`}
+                            className="img-thumbnail"
+                            style={{
+                              width: 88,
+                              height: 88,
+                              objectFit: "cover",
+                            }}
+                          />
+                          {image.principal && (
+                            <small className="d-block text-success mt-1">
+                              Principal
+                            </small>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <ImageUploaderMultiple
+                    itemLabel="la habitación"
+                    onImagesSelected={setImages}
                   />
                 </div>
               </div>

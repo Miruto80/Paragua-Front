@@ -1,22 +1,26 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import "./ImageUploaderMultiple.css";
 
-export default function ImageUploaderMultiple({ onImagesSelected, maxFiles = 8 }) {
+export default function ImageUploaderMultiple({
+  onImagesSelected,
+  maxFiles = 8,
+  itemLabel = "la habitación",
+}) {
   const [items, setItems] = useState([]); // [{ file, preview }]
+  const itemsRef = useRef(items);
 
   const onDrop = useCallback((acceptedFiles) => {
-    const nuevos = acceptedFiles.map(file => ({
+    const disponibles = Math.max(0, maxFiles - items.length);
+    const nuevos = acceptedFiles.slice(0, disponibles).map(file => ({
       file,
       preview: URL.createObjectURL(file)
     }));
 
-    setItems(prev => {
-      const combinados = [...prev, ...nuevos].slice(0, maxFiles);
-      onImagesSelected(combinados.map(i => i.file));
-      return combinados;
-    });
-  }, [onImagesSelected, maxFiles]);
+    const combinados = [...items, ...nuevos];
+    setItems(combinados);
+    onImagesSelected(combinados.map(item => item.file));
+  }, [items, onImagesSelected, maxFiles]);
 
   const { getRootProps, getInputProps, isDragActive, fileRejections } = useDropzone({
     onDrop,
@@ -30,16 +34,21 @@ export default function ImageUploaderMultiple({ onImagesSelected, maxFiles = 8 }
   });
 
   const removeItem = (index) => {
-    setItems(prev => {
-      const nuevos = prev.filter((_, i) => i !== index);
-      onImagesSelected(nuevos.map(i => i.file));
-      return nuevos;
-    });
+    const removedItem = items[index];
+    if (removedItem) URL.revokeObjectURL(removedItem.preview);
+
+    const nuevos = items.filter((_, itemIndex) => itemIndex !== index);
+    setItems(nuevos);
+    onImagesSelected(nuevos.map(item => item.file));
   };
 
   useEffect(() => {
+    itemsRef.current = items;
+  }, [items]);
+
+  useEffect(() => {
     return () => {
-      items.forEach(i => URL.revokeObjectURL(i.preview));
+      itemsRef.current.forEach(item => URL.revokeObjectURL(item.preview));
     };
   }, []);
 
@@ -56,7 +65,7 @@ export default function ImageUploaderMultiple({ onImagesSelected, maxFiles = 8 }
           </svg>
         </span>
         <span className="image-uploader-title">
-          {isDragActive ? "Soltá tus imágenes aquí" : "Agregá imágenes del producto"}
+          {isDragActive ? "Soltá tus imágenes aquí" : `Agregá imágenes de ${itemLabel}`}
         </span>
         <span className="image-uploader-description">
           Arrastralas y soltá aquí, o <span className="image-uploader-browse">explorá tus archivos</span>

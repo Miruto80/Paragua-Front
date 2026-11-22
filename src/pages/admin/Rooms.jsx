@@ -5,6 +5,7 @@ import ReusableDataTable from "../../components/common/ReusableDataTable.jsx";
 import RoomModal from "../../components/admin/RoomModal.jsx";
 import { useGetFetch } from "../../hooks/useGetFetch.jsx";
 import { useDeleteFetch } from "../../hooks/useDeleteFetch.jsx";
+import { SERVER_URL } from "../../services/api.js";
 
 const floorLabels = {
   0: "PB",
@@ -69,6 +70,27 @@ export default function Rooms() {
   const columns = [
     { title: "ID", data: "id" },
     {
+      title: "Foto",
+      data: null,
+      orderable: false,
+      searchable: false,
+      render: (_value, type, room) => {
+        if (type !== "display") return "";
+        const firstImage = room.imagenes?.[0];
+        if (!firstImage) return '<span class="text-muted small">Sin foto</span>';
+
+        return `
+          <img
+            src="${escapeHtml(`${SERVER_URL}${firstImage.imagen}`)}"
+            alt="Habitación ${escapeHtml(room.numero)}"
+            width="64"
+            height="48"
+            style="object-fit: cover; border-radius: 6px;"
+          />
+        `;
+      },
+    },
+    {
       title: "Número",
       data: "numero",
       render: (value, type) =>
@@ -93,7 +115,7 @@ export default function Rooms() {
       title: "Estatus",
       data: "estatus",
       render: (status) =>
-        `<span class="badge ${status === "activa" ? "bg-success" : "bg-secondary"}">${statusLabels[status] || status}</span>`,
+        `<span class="badge ${status === "activa" ? "bg-success" : "bg-secondary"}">${escapeHtml(statusLabels[status] || status)}</span>`,
     },
     {
       title: "Acciones",
@@ -129,7 +151,8 @@ export default function Rooms() {
             options={{
               columnDefs: [
                 { targets: 0, className: "text-center" },
-                { targets: [1, 2, 3, 4, 5, 6], className: "text-start" },
+                { targets: 1, className: "text-center" },
+                { targets: [2, 3, 4, 5, 6, 7], className: "text-start" },
               ],
               language: {
                 search: "Buscar:",
