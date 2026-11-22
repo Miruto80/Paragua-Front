@@ -20,6 +20,9 @@ export default function Home() {
         <FeaturedRooms />
       </div>
       <div className="home-section">
+        <About />
+      </div>
+      <div className="home-section">
         <Services />
       </div>
       <div className="home-section">
@@ -30,9 +33,6 @@ export default function Home() {
       </div>
       <div className="home-section">
         <Ubication />
-      </div>
-      <div className="home-section">
-        <About />
       </div>
     </main>
   );
