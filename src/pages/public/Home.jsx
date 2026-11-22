@@ -2,7 +2,6 @@ import Hero from "../../components/public/Hero.jsx";
 import Features from "../../components/public/Features.jsx";
 import Gallery from "../../components/public/Gallery.jsx";
 import Ubication from "../../components/public/Ubication.jsx";
-import Services from "../../components/public/Services.jsx";
 import FeaturedRooms from "../../components/public/FeaturedRooms.jsx";
 import AreasOfInterested from "../../components/public/AreasOfInterested.jsx";
 import About from "../../components/public/About.jsx";
@@ -21,9 +20,6 @@ export default function Home() {
       </div>
       <div className="home-section">
         <About />
-      </div>
-      <div className="home-section">
-        <Services />
       </div>
       <div className="home-section">
         <Gallery />
