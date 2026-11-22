@@ -1,0 +1,226 @@
+.featured-rooms-section {
+  width: 100%;
+  padding: 4.5rem 1.5rem;
+  background: #fbf8f6;
+}
+
+.featured-rooms-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.featured-rooms-heading {
+  max-width: 680px;
+  margin: 0 auto 2.25rem;
+  text-align: center;
+}
+
+.featured-rooms-heading > span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #934135;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.featured-rooms-heading h2 {
+  margin: 0;
+  color: #111827;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  line-height: 1.15;
+}
+
+.featured-rooms-heading p {
+  margin: 0.85rem 0 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.featured-room-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #eadbd7;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(90, 43, 34, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.featured-room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(90, 43, 34, 0.14);
+}
+
+.featured-room-image-link {
+  position: relative;
+  display: block;
+  height: 220px;
+  overflow: hidden;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.featured-room-image-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.featured-room-card:hover .featured-room-image-link img {
+  transform: scale(1.04);
+}
+
+.featured-room-capacity {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(147, 65, 53, 0.94);
+  font-size: 0.86rem;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(52, 45, 42, 0.18);
+}
+
+.featured-room-content {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  padding: 1.35rem;
+}
+
+.featured-room-content h3 {
+  margin: 0;
+  color: #342d2a;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.featured-room-content > p {
+  margin: 0.65rem 0 1rem;
+  color: #766b66;
+  line-height: 1.55;
+}
+
+.featured-room-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featured-room-amenities li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #625651;
+  font-size: 0.82rem;
+}
+
+.featured-room-amenities svg {
+  color: #33a6bd;
+}
+
+.featured-room-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.7rem 1.1rem;
+  border: 2px solid #934135;
+  border-radius: 999px;
+  background: #934135;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.featured-room-link:hover,
+.featured-room-link:focus-visible {
+  border-color: #7a3329;
+  background: #7a3329;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.featured-room-link:focus-visible,
+.featured-room-image-link:focus-visible {
+  outline: 3px solid rgba(147, 65, 53, 0.35);
+  outline-offset: 3px;
+}
+
+.featured-rooms-carousel {
+  padding-bottom: 3.25rem;
+}
+
+.featured-rooms-carousel .splide__arrow {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #eadbd7;
+  background: #ffffff;
+  box-shadow: 0 5px 14px rgba(52, 45, 42, 0.12);
+  opacity: 1;
+}
+
+.featured-rooms-carousel .splide__arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: #934135;
+}
+
+.featured-rooms-carousel .splide__arrow:focus-visible {
+  outline: 3px solid rgba(147, 65, 53, 0.35);
+  outline-offset: 3px;
+}
+
+.featured-rooms-carousel .splide__pagination {
+  bottom: 0.35rem;
+}
+
+.featured-rooms-carousel .splide__pagination__page {
+  width: 9px;
+  height: 9px;
+  margin: 5px;
+  background: #d8c6c1;
+  opacity: 1;
+}
+
+.featured-rooms-carousel .splide__pagination__page.is-active {
+  background: #934135;
+  transform: scale(1.15);
+}
+
+@media (max-width: 640px) {
+  .featured-rooms-section {
+    padding: 3.25rem 1rem;
+  }
+
+  .featured-rooms-heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .featured-room-image-link {
+    height: 210px;
+  }
+
+  .featured-room-content {
+    min-height: 250px;
+  }
+
+  .featured-rooms-carousel .splide__arrow {
+    top: 42%;
+  }
+}
