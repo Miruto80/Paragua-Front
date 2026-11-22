@@ -22,7 +22,7 @@ export default function RoomDetail() {
               <p>Habitaciones para {category.capacity} personas</p>
             </header>
 
-            <RoomFeatureCard />
+            <RoomFeatureCard capacity={category.capacity} />
           </>
         ) : (
           <div className="rooms-invalid-category" role="alert">

@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed, faCheck } from "@fortawesome/free-solid-svg-icons";
+import ReservationModal from "./ReservationModal.jsx";
 
 const roomFeatures = [
   "Baño privado",
@@ -18,7 +19,9 @@ const roomDetails = [
   { label: "Descripción", value: "Por definir", isDescription: true },
 ];
 
-export default function RoomFeatureCard() {
+export default function RoomFeatureCard({ capacity = 2 }) {
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+
   return (
     <article className="room-feature-card">
       <div
@@ -53,10 +56,19 @@ export default function RoomFeatureCard() {
           ))}
         </ul>
 
-        <Link className="room-feature-action" to="/habitaciones">
-          Reservar ahora
-        </Link>
+        <button
+          className="room-feature-action"
+          type="button"
+          onClick={() => setIsReservationOpen(true)}
+        >
+          Solicitar Reserva
+        </button>
       </div>
+      <ReservationModal
+        open={isReservationOpen}
+        capacity={capacity}
+        onClose={() => setIsReservationOpen(false)}
+      />
     </article>
   );
 }

@@ -241,11 +241,16 @@
   align-self: flex-end;
   margin-top: auto;
   padding: 0.65rem 1rem;
+  border: 0;
   border-radius: 999px;
   background: #33a6bd;
   color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
 .room-feature-action:hover,

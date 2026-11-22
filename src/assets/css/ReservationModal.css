@@ -1,0 +1,182 @@
+.reservation-modal {
+  width: min(560px, calc(100% - 2rem));
+  max-width: none;
+  max-height: min(90vh, 720px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #eadbd7;
+  border-radius: 14px;
+  background: #fff;
+  color: #342d2a;
+  box-shadow: 0 20px 60px rgba(37, 27, 24, 0.24);
+}
+
+.reservation-modal::backdrop {
+  background: rgba(36, 29, 27, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.reservation-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #f0e5e1;
+}
+
+.reservation-modal-eyebrow {
+  color: #934135;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.reservation-modal-header h2 {
+  margin: 0.35rem 0 0;
+  color: #342d2a;
+  font-size: 1.45rem;
+}
+
+.reservation-modal-header p {
+  margin: 0.4rem 0 0;
+  color: #766b66;
+  font-size: 0.9rem;
+}
+
+.reservation-modal-close {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #fbf8f6;
+  color: #625651;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.reservation-modal-close:hover,
+.reservation-modal-close:focus-visible {
+  background: #f5e8df;
+  color: #7a3329;
+}
+
+.reservation-modal-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.reservation-modal .room-reservation-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.reservation-modal .room-reservation-fields label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: #887b75;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.reservation-modal .room-reservation-fields label:last-child {
+  grid-column: 1 / -1;
+}
+
+.reservation-modal .room-reservation-fields label > span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.reservation-modal .room-reservation-fields svg {
+  color: #934135;
+}
+
+.reservation-modal .room-reservation-fields input,
+.reservation-modal .room-reservation-fields select {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  box-sizing: border-box;
+  border: 1px solid #d6d3d1;
+  border-radius: 7px;
+  background: #fff;
+  color: #342d2a;
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 0 0.65rem;
+}
+
+.reservation-modal .room-reservation-fields input:focus,
+.reservation-modal .room-reservation-fields select:focus {
+  border-color: #934135;
+  outline: 3px solid rgba(147, 65, 53, 0.16);
+  outline-offset: 1px;
+}
+
+.reservation-modal-price {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: #fbf8f6;
+  color: #934135;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.reservation-modal-submit {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 7px;
+  background: #33a6bd;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.reservation-modal-submit:hover,
+.reservation-modal-submit:focus-visible {
+  background: #24879b;
+}
+
+.reservation-modal-close:focus-visible,
+.reservation-modal-submit:focus-visible {
+  outline: 3px solid rgba(147, 65, 53, 0.3);
+  outline-offset: 3px;
+}
+
+.room-reservation-confirmation {
+  margin: 0;
+  color: #24879b;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .reservation-modal .room-reservation-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .reservation-modal .room-reservation-fields label:last-child {
+    grid-column: auto;
+  }
+
+  .reservation-modal-header,
+  .reservation-modal-form {
+    padding: 1.15rem;
+  }
+}
