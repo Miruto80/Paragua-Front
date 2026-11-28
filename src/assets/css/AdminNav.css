@@ -62,8 +62,8 @@
 }
 
 .admin-navbar-link.active {
-    color: #2b1d00;
-    background: #fed067;
+    color: #8C4A32;
+    background: #FFFFFF;
     font-weight: 600;
 }
 
@@ -117,8 +117,8 @@
 }
 
 .btn-logout {
-  background-color: #e94614; 
-  border-color: #9e2805;
+  background-color: #7A3D2B;
+  border-color: rgba(255, 255, 255, 0.24);
   color: #ffffff;
   font-weight: 500;
   border-radius: 10px;
@@ -127,8 +127,8 @@
 }
 
 .btn-logout:hover {
-  background-color: #e4552a;
-  border-color: #9e2805;
+  background-color: #8C4A32;
+  border-color: rgba(255, 255, 255, 0.38);
   color: #ffffff;
 }
 
@@ -219,8 +219,8 @@
     }
 
     .admin-mobile-menu-link.active {
-        color: #2b1d00;
-        background: #fed067;
+        color: #8C4A32;
+        background: #FAF8F5;
         font-weight: 600;
     }
 

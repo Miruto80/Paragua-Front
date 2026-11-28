@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 
 import { Line } from "react-chartjs-2";
+import { useState } from "react";
 
 ChartJS.register(
   CategoryScale,
@@ -22,6 +23,7 @@ ChartJS.register(
 );
 
 const SalesChart = () => {
+  const [period, setPeriod] = useState("Semana");
   const fechas = Array.from({ length: 7 }, (_, index) => {
     const fecha = new Date();
     fecha.setHours(0, 0, 0, 0);
@@ -30,23 +32,25 @@ const SalesChart = () => {
     return fecha;
   });
   const ingresos = [120, 85, 200, 0, 160, 240, 180];
+  const monthLabels = ["1", "5", "10", "15", "20", "25", "30"];
+  const monthIncome = [620, 740, 680, 920, 880, 1090, 1250];
+  const chartLabels = period === "Semana"
+    ? fechas.map((fecha) => fecha.toLocaleDateString("es-VE", { weekday: "short", day: "numeric" }))
+    : monthLabels;
+  const chartIncome = period === "Semana" ? ingresos : monthIncome;
   const data = {
-    labels: fechas.map((fecha) =>
-      fecha.toLocaleDateString("es-VE", {
-        weekday: "short",
-        day: "numeric",
-      })
-    ),
+    labels: chartLabels,
     datasets: [
       {
         label: "Ingresos ($)",
-        data: ingresos,
-        borderColor: "#17195A",
-        backgroundColor: "rgba(229,184,63,.18)",
+        data: chartIncome,
+        borderColor: "#8C4A32",
+        backgroundColor: "rgba(140,74,50,.14)",
         fill: true,
         tension: 0.35,
-        pointBackgroundColor: "#E5B83F",
-        pointBorderColor: "#17195A",
+        pointBackgroundColor: "#289FB7",
+        pointBorderColor: "#FFFFFF",
+        pointBorderWidth: 2,
         pointRadius: 5,
       },
     ],
@@ -63,11 +67,7 @@ const SalesChart = () => {
       },
 
       title: {
-        display: true,
-        text: "Ingresos de los últimos 7 días",
-        font: {
-          size: 18,
-        },
+        display: false,
       },
     },
 
@@ -78,7 +78,7 @@ const SalesChart = () => {
           callback: (value) => `$ ${Number(value).toLocaleString("es-VE")}`,
         },
         grid: {
-          color: "#ececec",
+          color: "#EFE8E1",
         },
       },
 
@@ -93,9 +93,28 @@ const SalesChart = () => {
   return (
     <div className="card dashboard-chart">
       <div className="card-body">
+        <div className="dashboard-chart-header">
+          <div>
+            <p>Resumen financiero</p>
+            <h2>Ingresos recientes</h2>
+          </div>
+          <div className="dashboard-chart-period" aria-label="Periodo del gráfico">
+            {["Semana", "Mes"].map((option) => (
+              <button
+                type="button"
+                key={option}
+                className={period === option ? "active" : ""}
+                aria-pressed={period === option}
+                onClick={() => setPeriod(option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
         <div
           style={{
-            height: "350px",
+            height: "240px",
           }}
         >
           <Line data={data} options={options} />

@@ -6,12 +6,9 @@ export default function DashboardCard({
     description,
     icon,
     color,
-    action,
-    onAction,
-    isActive = false,
 }) {
-    const content = (
-        <>
+    return (
+        <article className="dashboard-card">
             <span className="dashboard-icon" style={{ background: color }} aria-hidden="true">
                 <FontAwesomeIcon icon={icon} />
             </span>
@@ -20,21 +17,6 @@ export default function DashboardCard({
                 <span className="dashboard-card-value">{value}</span>
                 <span className="dashboard-card-description">{description}</span>
             </span>
-        </>
+        </article>
     );
-
-    if (action) {
-        return (
-            <button
-                type="button"
-                className={`dashboard-card dashboard-card-action${isActive ? " is-active" : ""}`}
-                onClick={() => onAction?.(action)}
-                aria-pressed={isActive}
-            >
-                {content}
-            </button>
-        );
-    }
-
-    return <article className="dashboard-card">{content}</article>;
 }

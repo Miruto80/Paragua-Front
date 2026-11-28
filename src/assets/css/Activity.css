@@ -1,0 +1,87 @@
+.dashboard-activity {
+  min-height: 174px;
+  background: #FFFFFF;
+  border: 1px solid #EFE8E1;
+  border-radius: 0.85rem;
+  box-shadow: 0 0.35rem 1.1rem rgb(104 74 59 / 7%);
+  padding: 0.85rem 1rem;
+}
+
+.dashboard-activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.dashboard-activity-header h2 {
+  margin: 0;
+  color: #243F3A;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.dashboard-activity-tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid #EFE8E1;
+}
+
+.dashboard-activity-tabs button {
+  padding: 0.35rem 0.55rem;
+  color: #847A73;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dashboard-activity-tabs button.active {
+  color: #8C4A32;
+  border-bottom-color: #8C4A32;
+}
+
+.dashboard-activity-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.dashboard-activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.45rem 0.55rem;
+  background: #FAF8F5;
+  border-radius: 0.55rem;
+}
+
+.dashboard-activity-item div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dashboard-activity-item strong {
+  color: #354641;
+  font-size: 0.82rem;
+}
+
+.dashboard-activity-item span {
+  color: #8A817A;
+  font-size: 0.72rem;
+}
+
+.dashboard-activity-item button {
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0 0.65rem;
+  color: #8C4A32;
+  background: #FFFFFF;
+  border: 1px solid #EFE8E1;
+  border-radius: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
